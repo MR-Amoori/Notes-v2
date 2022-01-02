@@ -14,7 +14,7 @@ namespace Notes.Forms
 {
     public partial class frm_AddOrEditNote : Form
     {
-        public int ID;
+        public int ID = 0;
         public int LastID;
         public frm_AddOrEditNote()
         {
@@ -30,13 +30,21 @@ namespace Notes.Forms
         {
             using (UnitOfWork db = new UnitOfWork())
             {
-                Note_TB note = new Note_TB();
-                note.ID = LastID + 1;
-                note.Titel = txtTitel.Text;
-                note.Note = txtNote.Text;
-                db.NotesRepository.Insert(note);
-                db.Saves();
-                DialogResult = DialogResult.OK;
+                if (ID==0) // Insert
+                {
+                    Note_TB note = new Note_TB();
+                    note.ID = LastID + 1;
+                    note.Titel = txtTitel.Text;
+                    note.Note = txtNote.Text;
+                    db.NotesRepository.Insert(note);
+                    db.Saves();
+                    DialogResult = DialogResult.OK;
+                }
+
+                else // Update
+                {
+
+                }
             }
         }
     }

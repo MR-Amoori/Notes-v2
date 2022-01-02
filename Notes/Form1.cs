@@ -94,6 +94,7 @@ namespace Notes
         private void btn_Insert_Click(object sender, EventArgs e)
         {
             Forms.frm_AddOrEditNote frm = new Forms.frm_AddOrEditNote();
+            frm.Text = "افزودن یادداشت";
             using (UnitOfWork db=new UnitOfWork())
             {
                 frm.LastID =db.NotesRepository.GetLastId();
@@ -125,6 +126,17 @@ namespace Notes
                     db.Saves();
                     BindGrid();
                 }
+            }
+        }
+
+        private void btn_EditNote_Click(object sender, EventArgs e)
+        {
+            Forms.frm_AddOrEditNote frm = new Forms.frm_AddOrEditNote();
+            frm.Text = "ویرایش یادداشت";
+            frm.ID = int.Parse(dgvNotes.CurrentRow.Cells[0].Value.ToString());
+            if (frm.ShowDialog()==DialogResult.OK)
+            {
+                BindGrid();
             }
         }
     }

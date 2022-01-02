@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtNote = new System.Windows.Forms.TextBox();
             this.btnSubmit = new DevComponents.DotNetBar.ButtonX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
-            this.txtNote = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtTitel = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
@@ -46,6 +46,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(222, 188);
             this.panel1.TabIndex = 1;
+            // 
+            // txtNote
+            // 
+            this.txtNote.BackColor = System.Drawing.SystemColors.Info;
+            this.txtNote.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNote.Location = new System.Drawing.Point(0, 0);
+            this.txtNote.Multiline = true;
+            this.txtNote.Name = "txtNote";
+            this.txtNote.Size = new System.Drawing.Size(220, 186);
+            this.txtNote.TabIndex = 0;
+            this.txtNote.Text = "بنویسید . . .";
             // 
             // btnSubmit
             // 
@@ -71,17 +82,6 @@
             this.btnCancel.Text = "انصراف";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // txtNote
-            // 
-            this.txtNote.BackColor = System.Drawing.SystemColors.Info;
-            this.txtNote.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNote.Location = new System.Drawing.Point(0, 0);
-            this.txtNote.Multiline = true;
-            this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(220, 186);
-            this.txtNote.TabIndex = 0;
-            this.txtNote.Text = "بنویسید . . .";
-            // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -91,7 +91,7 @@
             this.panel2.Location = new System.Drawing.Point(227, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(122, 188);
-            this.panel2.TabIndex = 0;
+            this.panel2.TabIndex = 1;
             // 
             // txtTitel
             // 
@@ -116,6 +116,7 @@
             this.Name = "frm_AddOrEditNote";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Load += new System.EventHandler(this.frm_AddOrEditNote_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

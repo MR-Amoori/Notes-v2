@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvNotes = new DevComponents.DotNetBar.Controls.DataGridViewX();
@@ -40,6 +40,8 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_EditNote = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btn_DeleteNote = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_Refresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_PrintNote = new System.Windows.Forms.ToolStripButton();
@@ -49,8 +51,6 @@
             this.آبیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.نلرنجیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.صورتیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btn_DeleteNote = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.خروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -123,14 +123,14 @@
             this.ID_Note,
             this.Titel,
             this.Note});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Mj_Flow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvNotes.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Mj_Flow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNotes.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvNotes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvNotes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvNotes.Location = new System.Drawing.Point(0, 0);
@@ -222,6 +222,23 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 68);
             // 
+            // btn_DeleteNote
+            // 
+            this.btn_DeleteNote.Image = global::Notes.Properties.Resources._1371476007_Close_Box_Red;
+            this.btn_DeleteNote.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btn_DeleteNote.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_DeleteNote.Name = "btn_DeleteNote";
+            this.btn_DeleteNote.Size = new System.Drawing.Size(44, 65);
+            this.btn_DeleteNote.Text = "حذف";
+            this.btn_DeleteNote.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_DeleteNote.ToolTipText = "حذف یادداشت";
+            this.btn_DeleteNote.Click += new System.EventHandler(this.btn_DeleteNote_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 68);
+            // 
             // btn_Refresh
             // 
             this.btn_Refresh.Image = global::Notes.Properties.Resources._1371476342_Refresh;
@@ -270,7 +287,7 @@
             // 
             // تمرنگیToolStripMenuItem
             // 
-            this.تمرنگیToolStripMenuItem.BackColor = System.Drawing.Color.LightBlue;
+            this.تمرنگیToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
             this.تمرنگیToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.آبیToolStripMenuItem,
             this.نلرنجیToolStripMenuItem,
@@ -283,42 +300,25 @@
             // 
             this.آبیToolStripMenuItem.BackColor = System.Drawing.Color.LightBlue;
             this.آبیToolStripMenuItem.Name = "آبیToolStripMenuItem";
-            this.آبیToolStripMenuItem.Size = new System.Drawing.Size(110, 26);
+            this.آبیToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.آبیToolStripMenuItem.Text = "آبی";
             this.آبیToolStripMenuItem.Click += new System.EventHandler(this.آبیToolStripMenuItem_Click);
             // 
             // نلرنجیToolStripMenuItem
             // 
-            this.نلرنجیToolStripMenuItem.BackColor = System.Drawing.Color.LightBlue;
+            this.نلرنجیToolStripMenuItem.BackColor = System.Drawing.Color.Orange;
             this.نلرنجیToolStripMenuItem.Name = "نلرنجیToolStripMenuItem";
-            this.نلرنجیToolStripMenuItem.Size = new System.Drawing.Size(110, 26);
+            this.نلرنجیToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.نلرنجیToolStripMenuItem.Text = "نارنجی";
             this.نلرنجیToolStripMenuItem.Click += new System.EventHandler(this.نلرنجیToolStripMenuItem_Click);
             // 
             // صورتیToolStripMenuItem
             // 
-            this.صورتیToolStripMenuItem.BackColor = System.Drawing.Color.LightBlue;
+            this.صورتیToolStripMenuItem.BackColor = System.Drawing.Color.Violet;
             this.صورتیToolStripMenuItem.Name = "صورتیToolStripMenuItem";
-            this.صورتیToolStripMenuItem.Size = new System.Drawing.Size(110, 26);
+            this.صورتیToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.صورتیToolStripMenuItem.Text = "صورتی";
             this.صورتیToolStripMenuItem.Click += new System.EventHandler(this.صورتیToolStripMenuItem_Click);
-            // 
-            // btn_DeleteNote
-            // 
-            this.btn_DeleteNote.Image = global::Notes.Properties.Resources._1371476007_Close_Box_Red;
-            this.btn_DeleteNote.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btn_DeleteNote.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_DeleteNote.Name = "btn_DeleteNote";
-            this.btn_DeleteNote.Size = new System.Drawing.Size(44, 65);
-            this.btn_DeleteNote.Text = "حذف";
-            this.btn_DeleteNote.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_DeleteNote.ToolTipText = "حذف یادداشت";
-            this.btn_DeleteNote.Click += new System.EventHandler(this.btn_DeleteNote_Click);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 68);
             // 
             // خروجToolStripMenuItem
             // 

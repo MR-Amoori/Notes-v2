@@ -66,8 +66,8 @@ namespace Notes
         void Them_Orange()
         {
             groupPanel1.ColorTable = DevComponents.DotNetBar.Controls.ePanelColorTable.Orange;
-            toolStrip1.BackColor = Color.SandyBrown;
-            dgvNotes.BackgroundColor = Color.NavajoWhite;
+            toolStrip1.BackColor = Color.PeachPuff;
+            dgvNotes.BackgroundColor = Color.DarkOrange;
         }
         void Them_Magenta()
         {

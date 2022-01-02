@@ -26,7 +26,7 @@ namespace Notes
 
         private void BindGrid()
         {
-            using (UnitOfWork db=new UnitOfWork())
+            using (UnitOfWork db = new UnitOfWork())
             {
                 dgvNotes.DataSource = db.NotesRepository.GetNotes();
             }
@@ -40,12 +40,16 @@ namespace Notes
         private void btn_Exit_Click(object sender, EventArgs e)
         {
 
-            if (RtlMessageBox.Show("آیا از بستن نرم افزار مطمئن هستید؟","توجه",MessageBoxButtons.YesNo,MessageBoxIcon.Question,MessageBoxDefaultButton.Button2)==DialogResult.Yes)
-            {
-                Application.Exit();
-            }
         }
 
+        private void dgvNotes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            frm_ShowNote frm=new frm_ShowNote();
+            frm.ID = (int)dgvNotes.CurrentRow.Cells[0].Value;
+            frm.ShowDialog();
+        }
+      
+        /**********************************/
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
             dgvNotes.AutoGenerateColumns = false;
@@ -85,6 +89,43 @@ namespace Notes
         private void صورتیToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Them_Magenta();
+        }
+
+        private void btn_Insert_Click(object sender, EventArgs e)
+        {
+            Forms.frm_AddOrEditNote frm = new Forms.frm_AddOrEditNote();
+            using (UnitOfWork db=new UnitOfWork())
+            {
+                frm.LastID =db.NotesRepository.GetLastId();
+            }
+            
+                if (frm.ShowDialog()==DialogResult.OK)
+            {
+                BindGrid();
+            }
+        }
+
+        private void خروجToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (RtlMessageBox.Show("آیا از بستن نرم افزار مطمئن هستید؟", "توجه", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void btn_DeleteNote_Click(object sender, EventArgs e)
+        {
+            string nameNote=dgvNotes.CurrentRow.Cells[1].Value.ToString();
+            int idNote = int.Parse(dgvNotes.CurrentRow.Cells[0].Value.ToString());
+            if (RtlMessageBox.Show($"آیا از حذف {nameNote} مطمعن هستید؟", "توجه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                using (UnitOfWork db=new UnitOfWork())
+                {
+                    db.NotesRepository.Delete(idNote);
+                    db.Saves();
+                    BindGrid();
+                }
+            }
         }
     }
 }

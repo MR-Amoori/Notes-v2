@@ -17,6 +17,5 @@ namespace DataLayer
         public int ID { get; set; }
         public string Titel { get; set; }
         public string Note { get; set; }
-        public string Image { get; set; }
     }
 }

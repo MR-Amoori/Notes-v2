@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notes", "Notes\Notes.csproj", "{C124D934-C0CE-45C6-AC82-93D3EF65782E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ANotes", "Notes\ANotes.csproj", "{C124D934-C0CE-45C6-AC82-93D3EF65782E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{C917ECB3-77EA-42FE-85FB-FFD3BAA24BF1}"
 EndProject

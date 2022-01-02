@@ -23,6 +23,10 @@ namespace DataLayer
             }
         }
 
+        public void Saves()
+        {
+            db.SaveChanges();
+        }
         public void Dispose()
         {
             db.Dispose();

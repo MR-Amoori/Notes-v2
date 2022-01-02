@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btn_Exit = new System.Windows.Forms.ToolStripButton();
@@ -42,21 +42,25 @@
             this.btn_Settings = new System.Windows.Forms.ToolStripDropDownButton();
             this.تمرنگیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.آبیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.قرمزToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.نلرنجیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.صورتیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridViewX1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.dgvNotes = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.ID_Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Titel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_Refresh = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.groupPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNotes)).BeginInit();
             this.SuspendLayout();
             // 
             // groupPanel1
             // 
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
-            this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2013;
+            this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel1.Controls.Add(this.panel1);
             this.groupPanel1.Controls.Add(this.toolStrip1);
             this.groupPanel1.DisabledBackColor = System.Drawing.Color.Empty;
@@ -108,6 +112,8 @@
             this.toolStripSeparator4,
             this.btn_EditNote,
             this.toolStripSeparator3,
+            this.btn_Refresh,
+            this.toolStripSeparator5,
             this.btn_PrintNote,
             this.toolStripSeparator2,
             this.btn_Settings});
@@ -200,7 +206,6 @@
             this.تمرنگیToolStripMenuItem.BackColor = System.Drawing.Color.LightBlue;
             this.تمرنگیToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.آبیToolStripMenuItem,
-            this.قرمزToolStripMenuItem,
             this.نلرنجیToolStripMenuItem,
             this.صورتیToolStripMenuItem});
             this.تمرنگیToolStripMenuItem.Name = "تمرنگیToolStripMenuItem";
@@ -213,20 +218,15 @@
             this.آبیToolStripMenuItem.Name = "آبیToolStripMenuItem";
             this.آبیToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.آبیToolStripMenuItem.Text = "آبی";
-            // 
-            // قرمزToolStripMenuItem
-            // 
-            this.قرمزToolStripMenuItem.BackColor = System.Drawing.Color.LightBlue;
-            this.قرمزToolStripMenuItem.Name = "قرمزToolStripMenuItem";
-            this.قرمزToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.قرمزToolStripMenuItem.Text = "قرمز";
+            this.آبیToolStripMenuItem.Click += new System.EventHandler(this.آبیToolStripMenuItem_Click);
             // 
             // نلرنجیToolStripMenuItem
             // 
             this.نلرنجیToolStripMenuItem.BackColor = System.Drawing.Color.LightBlue;
             this.نلرنجیToolStripMenuItem.Name = "نلرنجیToolStripMenuItem";
             this.نلرنجیToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.نلرنجیToolStripMenuItem.Text = "نلرنجی";
+            this.نلرنجیToolStripMenuItem.Text = "نارنجی";
+            this.نلرنجیToolStripMenuItem.Click += new System.EventHandler(this.نلرنجیToolStripMenuItem_Click);
             // 
             // صورتیToolStripMenuItem
             // 
@@ -234,35 +234,82 @@
             this.صورتیToolStripMenuItem.Name = "صورتیToolStripMenuItem";
             this.صورتیToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.صورتیToolStripMenuItem.Text = "صورتی";
+            this.صورتیToolStripMenuItem.Click += new System.EventHandler(this.صورتیToolStripMenuItem_Click);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dataGridViewX1);
+            this.panel1.Controls.Add(this.dgvNotes);
             this.panel1.Location = new System.Drawing.Point(-3, 67);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(517, 265);
             this.panel1.TabIndex = 1;
             // 
-            // dataGridViewX1
+            // dgvNotes
             // 
-            this.dataGridViewX1.AllowUserToAddRows = false;
-            this.dataGridViewX1.AllowUserToDeleteRows = false;
-            this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Mj_Flow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewX1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridViewX1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewX1.Name = "dataGridViewX1";
-            this.dataGridViewX1.ReadOnly = true;
-            this.dataGridViewX1.Size = new System.Drawing.Size(517, 265);
-            this.dataGridViewX1.TabIndex = 0;
+            this.dgvNotes.AllowUserToAddRows = false;
+            this.dgvNotes.AllowUserToDeleteRows = false;
+            this.dgvNotes.AllowUserToResizeColumns = false;
+            this.dgvNotes.AllowUserToResizeRows = false;
+            this.dgvNotes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvNotes.BackgroundColor = System.Drawing.Color.SteelBlue;
+            this.dgvNotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNotes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID_Note,
+            this.Titel,
+            this.Note});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Mj_Flow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNotes.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvNotes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvNotes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dgvNotes.Location = new System.Drawing.Point(0, 0);
+            this.dgvNotes.Name = "dgvNotes";
+            this.dgvNotes.ReadOnly = true;
+            this.dgvNotes.Size = new System.Drawing.Size(517, 265);
+            this.dgvNotes.TabIndex = 0;
+            // 
+            // ID_Note
+            // 
+            this.ID_Note.DataPropertyName = "ID";
+            this.ID_Note.HeaderText = "کد";
+            this.ID_Note.Name = "ID_Note";
+            this.ID_Note.ReadOnly = true;
+            // 
+            // Titel
+            // 
+            this.Titel.DataPropertyName = "Titel";
+            this.Titel.HeaderText = "عنوان";
+            this.Titel.Name = "Titel";
+            this.Titel.ReadOnly = true;
+            // 
+            // Note
+            // 
+            this.Note.DataPropertyName = "Note";
+            this.Note.HeaderText = "یادداشت";
+            this.Note.Name = "Note";
+            this.Note.ReadOnly = true;
+            // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.Image = global::Notes.Properties.Resources._1371476342_Refresh;
+            this.btn_Refresh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btn_Refresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(60, 65);
+            this.btn_Refresh.Text = "بروزرسانی";
+            this.btn_Refresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_Refresh.ToolTipText = "بروزرسانی لیست";
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 68);
             // 
             // Form1
             // 
@@ -278,12 +325,13 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "دفترچه یادداشت";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupPanel1.ResumeLayout(false);
             this.groupPanel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNotes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -303,11 +351,15 @@
         private System.Windows.Forms.ToolStripDropDownButton btn_Settings;
         private System.Windows.Forms.ToolStripMenuItem تمرنگیToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem آبیToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem قرمزToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem نلرنجیToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem صورتیToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
-        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewX1;
+        private DevComponents.DotNetBar.Controls.DataGridViewX dgvNotes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_Note;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Titel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Note;
+        private System.Windows.Forms.ToolStripButton btn_Refresh;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     }
 }
 

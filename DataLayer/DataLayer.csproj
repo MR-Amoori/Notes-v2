@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\UnitOfWork.cs" />
     <Compile Include="Nete_Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -69,6 +70,8 @@
       <DependentUpon>Nete_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\INotesRepository.cs" />
+    <Compile Include="Services\NotesRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Nete_Model.edmx">
@@ -98,10 +101,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repository\" />
-    <Folder Include="Services\" />
-    <Folder Include="Unit Of Work\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

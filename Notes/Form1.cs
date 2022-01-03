@@ -139,5 +139,10 @@ namespace Notes
                 BindGrid();
             }
         }
+
+        private void btn_PrintNote_Click(object sender, EventArgs e)
+        {
+            RtlMessageBox.Show("درحال حاضر چاپ یادداشت امکان پذیر نمی باشد.","خطا",MessageBoxButtons.OK,MessageBoxIcon.Error);
+        }
     }
 }

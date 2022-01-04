@@ -44,11 +44,11 @@ namespace Notes
 
         private void dgvNotes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            frm_ShowNote frm=new frm_ShowNote();
+            frm_ShowNote frm = new frm_ShowNote();
             frm.ID = (int)dgvNotes.CurrentRow.Cells[0].Value;
             frm.ShowDialog();
         }
-      
+
         /**********************************/
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
@@ -95,12 +95,19 @@ namespace Notes
         {
             Forms.frm_AddOrEditNote frm = new Forms.frm_AddOrEditNote();
             frm.Text = "افزودن یادداشت";
-            using (UnitOfWork db=new UnitOfWork())
+            if (dgvNotes.CurrentRow == null)
             {
-                frm.LastID =db.NotesRepository.GetLastId();
+                frm.LastID = 0;
             }
-            
-                if (frm.ShowDialog()==DialogResult.OK)
+            else
+            {
+                using (UnitOfWork db = new UnitOfWork())
+                {
+                    frm.LastID = db.NotesRepository.GetLastId();
+                }
+            }
+
+            if (frm.ShowDialog() == DialogResult.OK)
             {
                 BindGrid();
             }
@@ -116,11 +123,11 @@ namespace Notes
 
         private void btn_DeleteNote_Click(object sender, EventArgs e)
         {
-            string nameNote=dgvNotes.CurrentRow.Cells[1].Value.ToString();
+            string nameNote = dgvNotes.CurrentRow.Cells[1].Value.ToString();
             int idNote = int.Parse(dgvNotes.CurrentRow.Cells[0].Value.ToString());
             if (RtlMessageBox.Show($"آیا از حذف {nameNote} مطمعن هستید؟", "توجه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                using (UnitOfWork db=new UnitOfWork())
+                using (UnitOfWork db = new UnitOfWork())
                 {
                     db.NotesRepository.Delete(idNote);
                     db.Saves();
@@ -134,7 +141,7 @@ namespace Notes
             Forms.frm_AddOrEditNote frm = new Forms.frm_AddOrEditNote();
             frm.Text = "ویرایش یادداشت";
             frm.ID = int.Parse(dgvNotes.CurrentRow.Cells[0].Value.ToString());
-            if (frm.ShowDialog()==DialogResult.OK)
+            if (frm.ShowDialog() == DialogResult.OK)
             {
                 BindGrid();
             }
@@ -142,7 +149,7 @@ namespace Notes
 
         private void btn_PrintNote_Click(object sender, EventArgs e)
         {
-            RtlMessageBox.Show("درحال حاضر چاپ یادداشت امکان پذیر نمی باشد.","خطا",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            RtlMessageBox.Show("درحال حاضر چاپ یادداشت امکان پذیر نمی باشد.", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
